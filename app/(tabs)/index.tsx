@@ -1,44 +1,54 @@
 import { View, StyleSheet } from "react-native";
 import { Avatar, Text, Card, Button, Icon, Chip } from "@rneui/themed";
+import styled from "styled-components/native";
+
+const Container = styled.View`
+  margin: 1rem;
+  flex-direction: row;
+  gap: 1rem;
+`;
+
+const Title = styled(Text)`
+  margin: 0 1rem;
+`;
 
 export default function Tab() {
   return (
     <View>
-      <View>
+      <Container>
         <Avatar
           size={70}
           rounded
           source={{ uri: "https://randomuser.me/api/portraits/men/36.jpg" }}
         />
-        <Text>Welcome back, Sarah!</Text>
-        <Text>Week xx of pregnancy.</Text>
-      </View>
+        <View>
+          <Text>Welcome back, Sarah!</Text>
+          <Text>Week xx of pregnancy.</Text>
+        </View>
+      </Container>
 
-      <Text h4>Upcoming Events</Text>
+      <Title h4>Upcoming Events</Title>
       <Card>
-        <Icon reverse name="calendar" type="ionicon" color="#D4E6B5" />
-        <Text>Prenatal Yoga Class</Text>
-        <Text>Tomorrow, 10:00 AM</Text>
-        {/* <Button
-          icon={
-            <Icon name="code" color="#ffffff" iconStyle={{ marginRight: 10 }} />
-          }
-          buttonStyle={{
-            borderRadius: 0,
-            marginLeft: 0,
-            marginRight: 0,
-            marginBottom: 0,
-          }}
-          title="VIEW NOW"
-        /> */}
+        <Container>
+          <Icon reverse name="calendar" type="ionicon" color="#D4E6B5" />
+          <View>
+            <Text>Prenatal Yoga Class</Text>
+            <Text>Tomorrow, 10:00 AM</Text>
+          </View>
+        </Container>
       </Card>
 
-      <Text h4>My courses</Text>
+      <Title h4>My courses</Title>
+
       <Card>
-        <Icon reverse name="calendar" type="ionicon" color="#D4E6B5" />
-        <Chip title="Post Natal" containerStyle={{ marginVertical: 15 }} />
-        <Text>Fundamentals of Latching</Text>
-        <Text>Rebecca Smith</Text>
+        <Container>
+          <Icon reverse name="calendar" type="ionicon" color="#D4E6B5" />
+          <View>
+            <Chip title="Post Natal" containerStyle={{ marginVertical: 15 }} />
+            <Text>Fundamentals of Latching</Text>
+            <Text>Rebecca Smith</Text>
+          </View>
+        </Container>
       </Card>
     </View>
   );

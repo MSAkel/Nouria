@@ -33,7 +33,7 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
+            <IconSymbol size={20} name="house.fill" color={color} />
           ),
         }}
       />
@@ -42,7 +42,7 @@ export default function TabLayout() {
         options={{
           title: "Providers",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="search.fill" color={color} />
+            <IconSymbol size={20} name="search.fill" color={color} />
           ),
         }}
       />
@@ -51,7 +51,7 @@ export default function TabLayout() {
         options={{
           title: "Events",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="event.fill" color={color} />
+            <IconSymbol size={20} name="event.fill" color={color} />
           ),
         }}
       />
@@ -60,7 +60,7 @@ export default function TabLayout() {
         options={{
           title: "Learning",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="event.fill" color={color} />
+            <IconSymbol size={20} name="event.fill" color={color} />
           ),
         }}
       />
@@ -69,7 +69,7 @@ export default function TabLayout() {
         options={{
           title: "Community",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="groups.fill" color={color} />
+            <IconSymbol size={20} name="groups.fill" color={color} />
           ),
         }}
       />

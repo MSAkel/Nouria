@@ -16,6 +16,8 @@ const MAPPING = {
   "groups.fill": "groups",
   "chevron.left.forwardslash.chevron.right": "code",
   "chevron.right": "chevron-right",
+  filter: "filter-list",
+  bookmark: "bookmark",
 } as Partial<
   Record<
     import("expo-symbols").SymbolViewProps["name"],

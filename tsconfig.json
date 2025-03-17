@@ -8,6 +8,8 @@
       "tests": ["tests/*"],
       "@components/*": ["components/*"],
       "@constants/*": ["constants/*"],
+      "@data/*": ["data/*"],
+      "@types/*": ["types/*"],
       "@hooks/*": ["hooks/*"]
     }
   },
