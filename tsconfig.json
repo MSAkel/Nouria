@@ -10,7 +10,8 @@
       "@constants/*": ["constants/*"],
       "@data/*": ["data/*"],
       "@types/*": ["types/*"],
-      "@hooks/*": ["hooks/*"]
+      "@hooks/*": ["hooks/*"],
+      "@graphql/*": ["app/graphql/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]

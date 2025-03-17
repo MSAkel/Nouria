@@ -35,4 +35,10 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
+# AWS
+aws-exports.js
+
+# GraphQL
+codegen.yml
+
 app-example

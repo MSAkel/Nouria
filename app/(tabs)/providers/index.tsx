@@ -1,18 +1,19 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  ActivityIndicator,
+  FlatList,
+} from "react-native";
 import { Button, Card, Chip, Icon, SearchBar } from "@rneui/themed";
 import { useState } from "react";
 import styled from "styled-components/native";
-import { providers } from "app/data/providers";
-import { Provider } from "app/types/provider";
 import { IconSymbol } from "@components/ui/IconSymbol";
 import { useRouter } from "expo-router";
+import { useUsersQuery } from "@graphql/generated";
 
 const StickySearchBar = styled.View`
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10; */
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -34,9 +35,10 @@ export default function ProvidersScreen() {
   const [search, setSearch] = useState("");
   const router = useRouter();
 
-  const updateSearch = (search: string) => {
-    setSearch(search);
-  };
+  const { loading, error, data } = useUsersQuery();
+
+  if (loading) return <ActivityIndicator size="large" />;
+  if (error) return <Text>Error: {error.message}</Text>;
 
   return (
     <View>
@@ -52,26 +54,31 @@ export default function ProvidersScreen() {
       </StickySearchBar>
       <ScrollView>
         <Title style={styles.title}>Providers List</Title>
-        {providers.map((provider: Provider) => (
-          <Card key={provider.id}>
-            <Container>
-              <Icon reverse name="calendar" type="ionicon" color="#D4E6B5" />
-              <View>
-                <Chip
-                  title="Post Natal"
-                  containerStyle={{ marginVertical: 15 }}
-                />
-                <Text>{provider.name}</Text>
-                <Text>Rebecca Smith</Text>
-              </View>
-            </Container>
 
-            <Button
-              title="View Provider 1"
-              onPress={() => router.push(`/(tabs)/providers/${provider.id}`)}
-            />
-          </Card>
-        ))}
+        <FlatList
+          data={data?.users}
+          keyExtractor={(provider) => provider.id}
+          renderItem={({ item }) => (
+            <Card key={item.id}>
+              <Container>
+                <Icon reverse name="calendar" type="ionicon" color="#D4E6B5" />
+                <View>
+                  <Chip
+                    title="Post Natal"
+                    containerStyle={{ marginVertical: 15 }}
+                  />
+                  <Text>{item.name}</Text>
+                  <Text>Rebecca Smith</Text>
+                </View>
+              </Container>
+
+              <Button
+                title="View Provider 1"
+                onPress={() => router.push(`/(tabs)/providers/${item.id}`)}
+              />
+            </Card>
+          )}
+        />
       </ScrollView>
     </View>
   );
