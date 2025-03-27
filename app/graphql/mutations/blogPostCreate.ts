@@ -1,22 +1,16 @@
 import { gql } from "@apollo/client";
 
 export const userCreate = gql`
-  mutation BlogPostCreate(
-    $providerId: ID!
-    $title: String!
-    $content: String!
-  ) {
+  mutation BlogPostCreate($userId: ID!, $title: String!, $content: String!) {
     blogPostCreate(
-      input: { providerId: $providerId, title: $title, content: $content }
+      input: { userId: $userId, title: $title, content: $content }
     ) {
       id
       title
       content
-      provider {
+      user {
         id
-        user {
-          name
-        }
+        name
       }
       createdAt
     }

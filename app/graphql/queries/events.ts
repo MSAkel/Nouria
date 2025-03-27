@@ -1,8 +1,9 @@
 import { gql } from "@apollo/client";
 
-export const usersQuery = gql`
+export const eventsQuery = gql`
   query Events {
     events {
+      id
       title
       date
       price

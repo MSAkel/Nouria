@@ -1,9 +1,8 @@
 import { gql } from "@apollo/client";
 
-export const providersQuery = gql`
-  query providers {
-    providers {
-      id
+export const providerQuery = gql`
+  query Provider($providerId: ID!) {
+    provider(providerId: $providerId) {
       specialties
       servicesOffered
       user {
